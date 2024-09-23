@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Redux Counter</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.js"></script>
+</head>
+
+<body>
+  <form>
+    <div>
+      <h1>Do Increment or Decrement</h1>
+      <input type="button" value="increment" onClick="increment()" />
+      <input type="button" value="decrement" onClick="decrement()" />
+      <br />
+      <h1 id="displayCounter">0</h1>
+    </div>
+  </form>
+
+  <script>
+
+    //Creating appStore
+    const appStore = Redux.createStore(counterReducer);
+    console.log(appStore.getState());
+    appStore.subscribe(
+      () => {
+        console.log(appStore.getState());
+        document.getElementById("displayCounter").innerText = appStore.getState().counter;
+      }
+    );
+
+
+    function increment() {
+      console.log(" incrementing... ");
+      appStore.dispatch({ type: "INCREMENT" });
+    }
+
+    function decrement() {
+      console.log(" decrementing... ");
+      appStore.dispatch({ type: "DECREMENT" });
+    }
+
+    //reducer function
+    function counterReducer(prevState = { counter: 0 }, action) {
+      let newState;
+      switch (action.type) {
+        case "INCREMENT":
+          newState = { ...prevState, counter: prevState.counter + 1 };
+          break;
+
+        case "DECREMENT":
+          newState = { ...prevState, counter: prevState.counter - 1 };
+          break;
+
+        default:
+          newState = { ...prevState };
+      }
+      console.log("newState" + newState)
+      return newState;
+    }
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<div class="container">
+<form #bookData = "ngForm" (ngSubmit) = "addBook(bookData.value)" >
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-4">
+                    <label for="usr">Name:</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" id="bookName" placeholder="Enter BookName" name="bookName" ngModel>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-4">
+                    <label for="usr">Author:</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control"  id="author" placeholder="Enter Author" name="author" ngModel>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-4">
+                    <label for="usr">Description:</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control"  id="description" placeholder="Enter Description" name="description" ngModel>
+                </div>
+            </div>
+            <br />
+        </div>
+        <input type="submit" class="btn btn-success" value="Add New Book"/>
+    </form>
+</div>

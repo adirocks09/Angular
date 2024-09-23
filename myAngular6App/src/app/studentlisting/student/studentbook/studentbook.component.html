@@ -1,0 +1,49 @@
+<div class="container">
+    <h4>BOOKS</h4>
+    <table class="table table-bordered">
+
+        <thead>
+            <tr>
+                <td colspan=4>
+                        <button pButton type="button" label="PrimeNG : Add
+                        Book Via Pop Window" class="ui-button-raised ui-button-warning" (click)="openPopUpPrimeNg()" icon="pi pi-info-circle" ></button>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan=4>
+                    <button class="btn btn-sm btn-primary" (click)="openPopUp()"><span class="glyphicon glyphicon-plus"></span>
+                        NgBootstrap : Add Book Via Pop Window</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=2>
+                    <a routerLink='addExistingBook' class="btn btn-info btn-sm">
+                        <span class="glyphicon glyphicon-plus"></span> Add Book
+                    </a>
+                </td>
+                <td colspan=2>
+                    <button type="button" class="btn btn-success btn-sm" (click)='refresh()'>
+                        <span class="glyphicon glyphicon-refresh"></span> Refresh
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>AUTHOR</th>
+                <th>DESCRIPTION</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of booksForStudent">
+                <td>{{b.id}}</td>
+                <td>{{b.name}}</td>
+                <td>{{b.author}}</td>
+                <td>{{b.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <router-outlet></router-outlet>
+</div>

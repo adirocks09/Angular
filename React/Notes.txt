@@ -1,0 +1,13 @@
+*let and const are block scoped
+*you cannot access let unless you define it
+
+tempalate variable
+rest operator
+spread operator
+Destructuring
+Babel(Working in IE)
+Enhanced Object literal
+
+
+
+  

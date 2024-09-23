@@ -1,0 +1,36 @@
+<div class="container">
+    <h2><i>Available Books</i></h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>AUTHOR</th>
+                <th>DESCRIPTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of availableBooks ; let ind=index">
+                <td>
+                    <div class="ui-g-12">
+                        <p-checkbox name="group1" value="{{b.id}}" label="{{b.name}}" [(ngModel)]="selectedBooks"></p-checkbox>  <!-- NG-PRIME -->
+                    </div>
+                </td>
+                <td>{{b.author}}</td>
+                <td>{{b.description}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <button pButton type="button" class="ui-button-rounded ui-button-success" label="Save Books" (click)="addAvailableBooks($event)">
+    </button>
+
+
+    <!-- <div>
+        <h3 class="first">Inline</h3>
+        <p-colorPicker [(ngModel)]="color1" [inline]="true"></p-colorPicker>
+
+        <p style="margin-top:.5em">Selected Color: <span style="display:inline-block;width:32px;height:32px;vertical-align:middle"
+                [style.backgroundColor]="color1"></span> {{color1}} </p>
+    </div> -->
+</div>

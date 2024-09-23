@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Example 1</title>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js">
+        </script>
+    
+</head>
+<body>
+    
+</body>
+
+<script type="text/babel">
+
+class  Apple  {
+
+constructor(type){
+    this.type = type;
+    this.color = "red";
+    
+}
+ getAppleInfo() {  
+    console.log (this.color + ' ' + this.type + ' apple');
+}
+
+changeColor(clr){
+    this.color=clr;
+}
+
+changeColor2 = (clr) => {
+    this.color=clr;
+}
+
+} 
+
+var apple = new Apple('macintosh');
+apple.getAppleInfo();
+apple.changeColor("black");
+apple.getAppleInfo();
+apple.changeColor2("orange"); //using arrow function
+apple.getAppleInfo();
+
+
+</script>
+
+
+</html>

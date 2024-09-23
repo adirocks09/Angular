@@ -1,0 +1,83 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Angular Setup
+Reference : https://dzone.com/articles/angular-2-and-spring-boot-development-environment
+
+Install node.js and check version by node -v & npm -v
+Install angular client : npm install –g angular-cli
+Go to the workspace directory and write the command : ng new <project name> , eg: ng new myAngularApp
+Now Import the project in eclipse as Angular project (may need to install angular plugin in eclipse)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Angular client command (https://github.com/angular/angular-cli/wiki)
+
+Use the following commands to create angular application, component , service , pipe ,module., etc
+
+npm start / ng serve
+ng generate component <component name>
+ng generate service <service name>
+ng generate pipe <pipe name>
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Port changing for the application
+
+Add the following json in angular-cli.json
+ "serve": {
+      "port": 7200
+    }
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Proxy Configuration (https://blog.jdriven.com/2016/12/angular2-spring-boot-getting-started/)
+
+1. To add proxy modify the start property under scripts in package.json
+
+ "start": "ng server --proxy-config proxy.conf.json",
+
+2. Create a file named as proxy.conf.json with the proxy details of the application 
+
+--proxy.conf.json
+{
+  "/api": {
+    "target": "http://localhost:8080",
+    "secure": false
+  }
+}
+
+SO Basically when you hit localhost:7200 --> http://localhost:8080/api  (target+"/api")
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Angular2 + Bootstrap (Method 1)
+
+First install Bootstrap and jquery from npm:
+
+npm install bootstrap@3 jquery --save
+Then add the needed script files to to apps[0].scripts in angular-cli.json file:
+
+ "scripts": [
+          "../node_modules/jquery/dist/jquery.js" , 
+          "../node_modules/bootstrap/dist/js/bootstrap.js"
+    ],
+Finally add the Bootstrap CSS to the apps[0].styles array:
+
+"styles": [
+    "styles.css",
+    "../node_modules/bootstrap/dist/css/bootstrap.css"
+    ],
+Restart ng serve if you're running it, and Bootstrap 4 should be working on your app.
+
+This is best solution. But if you don't restart ng serve it never works. It is strongly recommended to do this last action.
+
+----------------------------------------------------------------------------------------------------------------------------------------------- 
+Angular2 + Bootstrap (Method 2)
+ 
+Add in index.html
+  <script src ="../node_modules/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+  <script src ="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+-----------------------------------------------------------------------------------------------------------------------------------------------

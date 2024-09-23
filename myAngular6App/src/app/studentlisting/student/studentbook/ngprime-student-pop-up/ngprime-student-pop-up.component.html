@@ -1,0 +1,37 @@
+<div class="container">
+    <h2><i>Available Books</i></h2>
+    <p-table [value]="availableBooks" [paginator]="true" [rows]="5" [responsive]="true"> <!-- NG-PRIME Table-->
+        <ng-template pTemplate="header">
+            <tr>
+                <th>NAME</th>
+                <th>AUTHOR</th>
+                <th>DESCRIPTION</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-b>
+            <tr>
+                <td>
+                    <div class="ui-g-12">
+                        <p-checkbox name="group1" value="{{b.id}}" label="{{b.name}}" [(ngModel)]="selectedBooks">
+                        </p-checkbox> <!-- NG-PRIME CheckBox-->
+                    </div>
+                </td>
+                <td>{{b.author}}</td>
+                <td>{{b.description}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <br />
+    <button pButton type="button" class="ui-button-rounded ui-button-success" label="Save Books"
+        (click)="addAvailableBooks($event)">
+    </button>
+
+
+    <!-- <div>
+        <h3 class="first">Inline</h3>
+        <p-colorPicker [(ngModel)]="color1" [inline]="true"></p-colorPicker>
+
+        <p style="margin-top:.5em">Selected Color: <span style="display:inline-block;width:32px;height:32px;vertical-align:middle"
+                [style.backgroundColor]="color1"></span> {{color1}} </p>
+    </div> -->
+</div>

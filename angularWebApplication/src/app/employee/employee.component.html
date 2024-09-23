@@ -1,0 +1,42 @@
+<!-- interpolation -->
+<p>
+    {{name}} employee works!  
+</p>
+
+<!-- class binding using interpolation) -->
+<h1 class="{{classesToApply}}" >Hello People (Interpolation)!!! </h1>
+
+<!-- class binding using property binding) -->
+<h1 [class]="classesToApply" >Hello People (Property Binding)!!! </h1>
+
+<!-- event binding -->
+<input type="button" (click)="printMessage()" value="Click Me!">
+<br/><br/>
+<!-- 2 way data binding -->
+<input type="text" [(ngModel)]="name2">
+<br/><br/>
+{{name2}}
+<br/><br/>
+<div class="container">
+  <h2>Bootstrap Button Styles</h2>
+  <button type="button" class="btn">Basic</button>
+  <button type="button" class="btn btn-default">Default</button>
+  <button type="button" class="btn btn-primary">Primary</button>
+  <button type="button" class="btn btn-success">Success</button>
+  <button type="button" class="btn btn-info">Info</button>
+  <button type="button" class="btn btn-warning">Warning</button>
+  <button type="button" class="btn btn-danger">Danger</button>
+  <button type="button" class="btn btn-link">Link</button> 
+</div>
+<br/><br/>
+Enter 1st Number<input type="text" [(ngModel)]="num1"><br/><br/>
+Enter  2nd Number<input type="text" [(ngModel)]="num2"><br/><br/>
+Sum <input type="text" [(ngModel)]="sum"><br/><br/>
+<input type="button" (click)="addNum()" value="ADD">
+
+<app-employeelist></app-employeelist>
+
+
+
+
+

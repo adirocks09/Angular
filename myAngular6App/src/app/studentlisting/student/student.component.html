@@ -1,0 +1,22 @@
+<div class="container">
+    <form #studentData="ngForm" (ngSubmit)="addStudent(studentData.value)">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-4">
+                    <label for="usr">Name:</label>
+                    <input type="text" class="form-control" placeholder="Enter Name" name="studentName" ngModel>
+                </div>
+                <div class="col-lg-4">
+                    <label for="usr">Choose Country:</label>
+                    <select name = "country" ngModel style="position: absolute; left: 50px;margin-top: 30px;">
+                        <option value="India">India</option>
+                        <option value="Australia">Australia</option>
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default">Add New Student</button>
+    </form>
+</div>

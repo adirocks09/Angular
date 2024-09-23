@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home Page</title>
+</head>
+
+<body>
+    <div style="border: solid 5px black; background-color: cornflowerblue ">
+        <div>
+            <h1 style="text-align: center">Registration Form </h1>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-4 ">
+                <span class="p-float-label">
+                    <input id="float-input" type="text" pInputText [(ngModel)]="fName" (change) = "fNameChanged($event)">
+                    <label for="float-input">First Name</label>
+                </span>
+            </div>
+            <div class="p-col-4 ">
+                    <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText >
+                            <label for="float-input">Middle Name</label>
+                        </span>
+            </div>
+            <div class="p-col-4 ">
+                    <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText [(ngModel)]="lName">
+                            <label for="float-input">Last Name</label>
+                        </span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

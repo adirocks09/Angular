@@ -1,0 +1,15 @@
+.colorClass{
+	color:red;
+}
+
+.fontClass{
+	font-size: xx-large;
+	font-style: italic;
+	font-weight: bold;
+	font-family: cursive;
+}
+
+p{
+	color:blue;
+	font-size: large;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js">
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+
+<script type="text/babel">
+
+  class Hello extends React.Component{
+    render(){
+      console.log(this.props);
+      return <div><h1>{this.props.greet}{this.props.name} </h1>
+        <p>{this.props.children} </p></div>
+    }    
+  }
+
+  Hello.defaultProps={
+      greet:"Hello",
+      name:"World!"
+    }
+
+/*function Hello(props){
+  console.log(props)
+  const jsx= <div><h1> {props.greet} {props.name}</h1>
+  <p> {props.children}</p>
+  <hr/>
+  </div>;
+  return jsx;
+}*/
+  
+  const rootNode=document.getElementById("app");
+  ReactDOM.render(<div>
+  <Hello name="Adi" greet="Hi">Lets Learn some thingsss</Hello>
+  <Hello name="Raj" greet="Byeee"/>
+  <Hello name="Sam" greet="Good Morning"/>
+  <Hello/>
+  </div>,rootNode);
+
+</script>
+
+</html>

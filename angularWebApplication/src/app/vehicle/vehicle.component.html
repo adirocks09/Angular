@@ -1,0 +1,16 @@
+<h1 style="color:blue">
+  Vehicle Component
+</h1>
+<br/>
+Enter Vehicle Name : <input type="text" [(ngModel)]="vehicleName">
+<br/>
+Enter Vehicle Number : <input type="text" [(ngModel)]="vehicleNumber">
+<br/>
+Enter Vehicle Color : <input type="text" [(ngModel)]="vehicleColor">
+<br/>
+<input type ="button" value="Change Input Properties of Child Component" (click)="changeProperties()">
+<br/>
+<div style="color:red" >
+<app-car  [carName]="vehicleName" [carNumber]="vehicleNumber" [carColor]=" vehicleColor"></app-car>
+</div>
+

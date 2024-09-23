@@ -1,0 +1,53 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h2>BOOKS</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td colspan=3>
+                    <a routerLink='addNewBook' class="btn btn-info btn-sm">
+                        <i class="fas fa-book"></i>   Add New Book
+                    </a>
+                </td>
+                 <td colspan=3>
+                    <button type="button" class="btn btn-success btn-sm" (click)='refresh()'>
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>AUTHOR</th>
+                <th>DESCRIPTION</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of books">
+                <td>{{b.id}}</td>
+                <td>{{b.name}}</td>
+                <td>{{b.author}}</td>
+                <td>{{b.description}}</td>
+             <td>
+                 <a href="#">
+          <i class="fas fa-edit"></i>
+        </a>
+             </td>
+             <td>
+        <a href="#" >
+         <i class="fas fa-trash-alt"></i>
+        </a>
+             </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,74 @@
+<h1>Employee Table</h1>
+<div class="container-fluid">
+	<app-employee-list-toggle-bar [male]="getMaleNoEmployees()"
+		[female]="getFemaleNoEmployees()" [all]="getAllNoEmployees()"
+		(radioButtonEventEmitter)="getSelectedRadioButtonValue($event)"></app-employee-list-toggle-bar>
+
+	<div class="row">
+		<div class="col-md-8">
+			<table class="table  table-striped ">
+				<thead>
+					<tr>
+						<th>Code</th>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Salary</th>
+						<th>Index</th>
+						<th>IsFirst</th>
+						<th>IsLast</th>
+						<th>IsEven</th>
+						<th>IsOdd</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container
+						*ngFor="let emp of employees ; trackBy : trackbyEmpCode ;let i=index ; let isFirst=first ; let isLast=last ; let isEven = even ; let isOdd=odd">
+					<tr
+						*ngIf="radioButtonValue == emp.gender.toLowerCase() || radioButtonValue == 'all' ">
+						<td>
+						<a [routerLink]="['empl',emp.code.substring(3,6)]">{{emp.code}}</a>
+						</td>
+						<td>{{emp.name | uppercase | mycustom : emp.gender :emp.salary}}</td>
+						<td>{{emp.age}}</td>
+						<td>{{emp.salary}}</td>
+						<td>{{i}}</td>
+						<td>{{isFirst}}</td>
+						<td>{{isLast}}</td>
+						<td>{{isEven}}</td>
+						<td>{{isOdd}}</td>
+					</tr>
+					</ng-container>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-4">
+		<div *ngIf="subscription.closed ==false" >
+		<input type ="button" value ="Cancel Service Call" (click)="cancelSubscription()">
+		</div>
+			<table class="table  table-striped ">
+				<thead>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Salary</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan=3>{{statusMessage}}</td>
+					</tr>
+					<ng-container *ngIf="familyListHttpCallServiceCall != null">
+					<tr *ngFor="let family of familyListHttpCallServiceCall">
+						<td>{{family.name}}</td>
+						<td>{{family.age}}</td>
+						<td>{{family.salary}}</td>
+					</tr>
+					</ng-container>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
+
